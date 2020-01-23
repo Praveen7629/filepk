@@ -1,0 +1,68 @@
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+
+int main()
+{
+    int arr[100],siz,i,temp,j,num,pos;
+    cout<<"enter the size of the array:"<<endl;
+    cin>>siz;
+    cout<<"enter the array elements:"<<endl;
+    for(i=0;i<siz;i++)
+    {
+        cin>>arr[i];
+    }
+
+    for (i=0;i<siz;++i)
+    {
+      for (j=i+1;j<siz;++j)
+        {
+          if (arr[i]>arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+
+            }
+        }
+    }
+
+
+    cout<<"The sorted array is:"<<endl;
+    for(i=0;i<siz;i++)
+    {
+        cout<<"\t"<<arr[i];
+    }
+cout<<"\nenter the no. to insert:"<<endl;
+cin>>num;
+
+for(i=0;i<siz;i++)
+{
+    if(num>arr[i])
+    {
+        pos=i+1;
+    }
+}
+for(i=0;i<siz;i++)
+{
+    if(arr[i]==num)
+    {
+        cout<<"element already exist "<<endl;
+        exit(0);
+    }
+}
+    for(i=siz;i>=pos;i--)
+    {
+
+        arr[i+1]=arr[i];
+
+
+    }
+    arr[pos]=num;
+       cout<<"The updated array is:"<<endl;
+    for(i=0;i<siz+1;i++)
+    {
+        cout<<"\t"<<arr[i];
+    }
+    return 0;
+}
